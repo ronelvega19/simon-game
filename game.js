@@ -18,13 +18,20 @@ $(".btn").on("click", function () {
 });
 
 $(document).keydown(function () { 
-  
+  var timeLeft = 4;
+    var timeReady = setInterval(function (){
+      timeLeft--;
+      $("h1").text(timeLeft);
+      if(timeLeft<=1)
+        clearInterval(timeReady);
+      },1000);
+      
   if(!start){
-   
+   setTimeout(() => {
     $("#level-title").text("Level "+ level);
     nextSequence();
     start = true;
-    
+   }, 4000);
   }
 });
 
